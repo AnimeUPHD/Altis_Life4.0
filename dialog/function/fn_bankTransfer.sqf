@@ -23,5 +23,9 @@ BANK = BANK - (_val + _tax);
 
 [[_val,profileName],"life_fnc_wireTransfer",_unit,false,true] call life_fnc_MP;
 [] call life_fnc_atmMenu;
+
+//log transfer
+[[format["1|%1 has transfered %3$ to %2. The bankaccount from %1 has now a value of %4$.",player getVariable["realname",name player],_unit getVariable["realname",name _unit],[_val] call life_fnc_numberText,[life_atmbank] call life_fnc_numberText]],"Arma3Log",false,false] call life_fnc_MP;
+
 hint format[localize "STR_ATM_SentMoneySuccess",[_val] call life_fnc_numberText,_unit getVariable["realname",name _unit],[_tax] call life_fnc_numberText];
 [1] call SOCK_fnc_updatePartial;

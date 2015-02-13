@@ -25,19 +25,16 @@ switch(_shop) do {
 			default {
 				["Altis Cop Shop",
 					[
-						["arifle_sdar_F","Taser Rifle",20000],
-						["hgun_P07_snds_F","Stun Pistol",2000],
-						["hgun_P07_F",nil,7500],
-						["HandGrenade_Stone","Flashbang",1700],
+						["SMG_02_F","Rubber SMG",15000], 
+                        ["30Rnd_9x21_Mag","Rubber SMG Ammo",500],
+						["hgun_P07_snds_F","Rubber Pistol",2000],
+						["16Rnd_9x21_Mag","Rubber Pistol Ammo",500],
 						["Binocular",nil,150],
 						["ItemGPS",nil,100],
-						["ToolKit",nil,250],
+						["ToolKit",nil,500],
 						["muzzle_snds_L",nil,650],
 						["FirstAidKit",nil,150],
-						["Medikit",nil,1000],
-						["NVGoggles",nil,2000],
-						["16Rnd_9x21_Mag",nil,50],
-						["20Rnd_556x45_UW_mag","Taser Rifle Magazine",125]
+						["NVGoggles",nil,2000]
 					]
 				];
 			};
@@ -73,39 +70,62 @@ switch(_shop) do {
 			{
 				["Altis Patrol Officer Shop",
 					[
-						["arifle_MX_F",nil,35000],
-						["SMG_02_ACO_F",nil,30000],
-						["HandGrenade_Stone","Flashbang",1700],
-						["MineDetector",nil,1000],
+						["arifle_MK20C_plain_F",nil,35000],
+						["30Rnd_556x45_Stanag",nil,500],
 						["acc_flashlight",nil,750],
-						["optic_Holosight",nil,1200],
-						["optic_Arco",nil,2500],
-						["muzzle_snds_H",nil,2750],
-						["30Rnd_65x39_caseless_mag",nil,130],
-						["30Rnd_9x21_Mag",nil,250]
+						["optic_Holosight",nil,15000],
+						["optic_Arco",nil,1500],
+						["muzzle_snds_H",nil,25000],
+						["30Rnd_65x39_caseless_mag",nil,800],
+						["30Rnd_9x21_Mag",nil,500]
 					]
 				];
 			};
 		};
 	};
+	
+	case "cop_Corporal":
+    {
+        switch(true) do
+        {
+            case (playerSide != west): {"You are not a cop!"};
+            case (FETCH_CONST(life_coplevel) < 3): {"You are not at a Corporal rank!"};
+            default
+            {
+                ["Altis Corporal Shop",
+                    [
+                        ["arifle_MX_F",nil,90000],                                                                   
+                        ["acc_flashlight",nil,750],
+						["HandGrenade_Stone","Flashbang",500],
+                        ["optic_Holosight",nil,1200],
+                        ["optic_Arco",nil,1500],
+                        ["optic_Holosight_smg",nil,1200],
+                        ["muzzle_snds_H",nil,2750],
+                        ["muzzle_snds_M",nil,2500],
+                        ["30Rnd_65x39_caseless_mag",nil,950]					
+                    ]
+                ];
+            };
+        };
+    };
 
 	case "cop_sergeant":
 	{
 		switch(true) do
 		{
 			case (playerSide != west): {"You are not a cop!"};
-			case (FETCH_CONST(life_coplevel) < 3): {"You are not at a sergeant rank!"};
+			case (FETCH_CONST(life_coplevel) < 4): {"You are not at a sergeant rank!"};
 			default
 			{
 				["Altis Sergeant Officer Shop",
 					[
-						["SMG_02_ACO_F",nil,15000],
-						["hgun_ACPC2_F",nil,17500],
-						["HandGrenade_Stone","Flashbang",1700],
-						["arifle_MXC_F",nil,30000],
-						["optic_Arco",nil,2500],
-						["muzzle_snds_H",nil,2750],
-						["30Rnd_65x39_caseless_mag",nil,100],
+						["hgun_ACPC2_F",nil,7500],
+						["HandGrenade_Stone","Flashbang",500],
+						["arifle_MXC_F",nil,90000],
+						["optic_Arco",nil,1500],
+						["optic_SOS",nil,5000], 
+						["muzzle_snds_H",nil,25750],
+						["30Rnd_65x39_caseless_mag",nil,330],
 						["30Rnd_9x21_Mag",nil,60],
 						["9Rnd_45ACP_Mag",nil,200]
 					]
@@ -114,12 +134,61 @@ switch(_shop) do {
 		};
 	};
 	
+	
+    case "cop_Lieutenant":
+    {
+        switch(true) do
+        {
+            case (playerSide != west): {"You are not a cop!"};
+            case (FETCH_CONST(life_coplevel) < 5): {"You are not at a Lieutenant rank!"};
+            default
+            {
+                ["Altis Lieutenant Shop",
+                    [                     
+                        ["arifle_MXM_F",nil,125000],                        
+                        ["arifle_MXC_F",nil,90000],
+                        ["acc_flashlight",nil,750],  
+                        ["optic_SOS",nil,5000], 						
+                        ["muzzle_snds_B",nil,3000],
+                        ["30Rnd_65x39_caseless_mag",nil,950],                        
+                        ["30Rnd_65x39_caseless_mag_Tracer",nil,800],                        
+                        ["SmokeShellBlue",nil,2000]                                             
+                    ]
+                ];
+            };
+        };
+    };
+	
+	  case "cop_Captain":
+    {
+        switch(true) do
+        {
+            case (playerSide != west): {"You are not a cop!"};
+            case (FETCH_CONST(life_coplevel) < 6): {"You are not at a Captain rank!"};
+            default
+            {
+                ["Altis Captain Shop",
+                    [
+                        ["arifle_MX_SW_F",nil,175000],                                    
+                        ["acc_flashlight",nil,750],                            
+                        ["muzzle_snds_H",nil,2750],                                             
+                        ["100Rnd_65x39_caseless_mag",nil,2000],
+                        ["100Rnd_65x39_caseless_mag_Tracer",nil,1600],
+                        ["SmokeShellBlue",nil,2000]                                             
+                    ]
+                ];
+            };
+        };
+    };
+	
 	case "rebel":
 	{
 		switch(true) do
 		{
 			case (playerSide != civilian): {"You are not a civilian!"};
+			case (FETCH_CONST(life_rebellevel) == 0): {"You are not a Whitelisted Rebel!"};
 			case (!license_civ_rebel): {"You don't have a Rebel training license!"};
+			
 			default
 			{
 				["Mohammed's Jihadi Shop",
@@ -143,6 +212,70 @@ switch(_shop) do {
 		};
 	};
 	
+    case "donator":
+	{
+		switch(true) do
+		{
+			case (FETCH_CONST(life_donator) == 0): {"You are not a donator!"};
+			case (FETCH_CONST(life_donator) == 1):
+			{
+				["STS Donator Shop Tier 1",
+					[
+						["hgun_Rook40_F",nil,5000],
+						["hgun_PDW2000_F",nil,50500],
+						["optic_ACO_grn_smg",nil,750],
+						["ToolKit",nil,250],
+						["itemgps",nil,50],
+						["V_Rangemaster_belt",nil,4900],			
+						["16Rnd_9x21_Mag",nil,500],
+						["30Rnd_9x21_Mag",nil,1000]
+					]
+				];
+			};
+
+			case (FETCH_CONST(life_donator) == 2):
+			{
+				["STS Donator Shop Tier 2",
+					[
+						["hgun_Rook40_F",nil,5000],
+						["hgun_PDW2000_F",nil,50500],
+						["arifle_MK20C_plain_F",nil,170000],
+						["optic_ACO_grn_smg",nil,750],
+						["NVGoggles",nil,2000],
+						["ToolKit",nil,250],
+						["itemgps",nil,50],
+						["16Rnd_9x21_Mag",nil,500],
+						["30Rnd_9x21_Mag",nil,1000],
+						["30Rnd_556x45_Stanag",nil,1000]
+						
+					]
+				];
+			};
+
+			case (FETCH_CONST(life_donator) >= 3):
+			{
+				["STS Donator Shop Tier 3",
+					[
+						["hgun_Rook40_F",nil,5000],
+						["hgun_PDW2000_F",nil,50500],
+						["hgun_pistol_heavy_01_F",nil,5850],
+						["arifle_Mk20C_plain_F",nil,170000],
+						["optic_ACO_grn_smg",nil,750],
+						["optic_MRCO",nil,20000],
+						["NVGoggles",nil,2000],
+						["ToolKit",nil,250],
+						["itemgps",nil,50],
+						["FirstAidKit",nil,25],
+						["16Rnd_9x21_Mag",nil,500],
+						["30Rnd_9x21_Mag",nil,1000],
+						["11Rnd_45ACP_Mag",nil,500],
+						["30Rnd_556x45_Stanag",nil,1000]
+					]
+				];
+			};
+		};
+	};	
+	
 	case "gun":
 	{
 		switch(true) do
@@ -153,16 +286,16 @@ switch(_shop) do {
 			{
 				["Billy Joe's Firearms",
 					[
-						["hgun_Rook40_F",nil,6500],
-						["hgun_Pistol_heavy_02_F",nil,9850],
-						["hgun_ACPC2_F",nil,11500],
-						["hgun_PDW2000_F",nil,20000],
+						["hgun_Rook40_F",nil,9500],
+						["hgun_Pistol_heavy_02_F",nil,15850],
+						["hgun_ACPC2_F",nil,17500],
+						["hgun_PDW2000_F",nil,80000],
 						["optic_ACO_grn_smg",nil,2500],
 						["V_Rangemaster_belt",nil,4900],
-						["16Rnd_9x21_Mag",nil,25],
-						["9Rnd_45ACP_Mag",nil,45],
-						["6Rnd_45ACP_Cylinder",nil,50],
-						["30Rnd_9x21_Mag",nil,75]
+						["16Rnd_9x21_Mag",nil,500],
+						["9Rnd_45ACP_Mag",nil,500],
+						["6Rnd_45ACP_Cylinder",nil,500],
+						["30Rnd_9x21_Mag",nil,1000]
 					]
 				];
 			};
@@ -178,16 +311,16 @@ switch(_shop) do {
 			{
 				["Hideout Armament",
 					[
-						["hgun_Rook40_F",nil,1500],
-						["hgun_Pistol_heavy_02_F",nil,2500],
-						["hgun_ACPC2_F",nil,4500],
-						["hgun_PDW2000_F",nil,9500],
-						["optic_ACO_grn_smg",nil,950],
-						["V_Rangemaster_belt",nil,1900],
-						["16Rnd_9x21_Mag",nil,25],
-						["9Rnd_45ACP_Mag",nil,45],
-						["6Rnd_45ACP_Cylinder",nil,50],
-						["30Rnd_9x21_Mag",nil,75]
+						["hgun_Rook40_F",nil,9500],
+						["hgun_Pistol_heavy_02_F",nil,15850],
+						["hgun_ACPC2_F",nil,17500],
+						["hgun_PDW2000_F",nil,80000],
+						["optic_ACO_grn_smg",nil,2500],
+						["V_Rangemaster_belt",nil,4900],
+						["16Rnd_9x21_Mag",nil,500],
+						["9Rnd_45ACP_Mag",nil,500],
+						["6Rnd_45ACP_Cylinder",nil,500],
+						["30Rnd_9x21_Mag",nil,1000]
 					]
 				];
 			};

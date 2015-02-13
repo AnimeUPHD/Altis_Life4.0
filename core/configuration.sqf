@@ -29,6 +29,7 @@ life_interrupted = false;
 life_respawned = false;
 life_removeWanted = false;
 life_action_gathering = false;
+life_earplugs = false;
 life_vdFoot = viewDistance;
 life_vdCar = viewDistance;
 life_vdAir = viewDistance;
@@ -42,6 +43,7 @@ life_clothing_purchase = [-1,-1,-1,-1,-1];
 *****************************
 */
 life_maxWeight = LIFE_SETTINGS(getNumber,"total_maxWeight");
+life_maxWeightT = LIFE_SETTINGS(getNumber,"total_maxWeightT");
 life_carryWeight = 0; //Represents the players current inventory weight (MUST START AT 0).
 
 /*
@@ -57,23 +59,23 @@ life_thirst = 100;
 life_hunger = 100;
 CASH = 0;
 
-life_istazed = false;
+life_isdowned = false;
 life_vehicles = [];
 
 switch (playerSide) do {
 	case west: {
-		BANK = 7000; //Starting Bank Money
+		BANK = 15000; //Starting Bank Money
 		life_paycheck = 500; //Paycheck Amount
 	};
 	
 	case civilian: {
-		BANK = 3000; //Starting Bank Money
+		BANK = 5000; //Starting Bank Money
 		life_paycheck = 350; //Paycheck Amount
 	};
 	
 	case independent: {
-		BANK = 6500;
-		life_paycheck = 450;
+		BANK = 16500;
+		life_paycheck = 550;
 	};
 };
 
@@ -91,4 +93,5 @@ switch (playerSide) do {
 	_sideFlag = getText(_x >> "side");
 	
 	SVAR_MNS [LICENSE_VARNAME(_varName,_sideFlag),false];
+	
 } foreach ("true" configClasses (missionConfigFile >> "Licenses"));

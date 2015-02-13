@@ -55,6 +55,8 @@ class Life_Client_Core
 		class medicSirenLights {};
 		class medicLights {};
 		class medicSiren {};
+		class teamMarkers {};
+		class downedMarkers {};
 	};
 	
 	class Actions
@@ -91,6 +93,8 @@ class Life_Client_Core
 		class captureHideout {};
 		class gather {};
 		class gutAnimal {};
+		class surrender {};
+		class robShops {};
 	};
 	
 	class Housing
@@ -189,6 +193,9 @@ class Life_Client_Core
 		class loadGear {};
 		class stripDownPlayer {};
 		class nearATM {};
+	    class handleDowned {};
+		class localChatmessage {};
+		class autoSave {};
 	};
 	
 	class Network
@@ -234,12 +241,14 @@ class Life_Client_Core
 		class vehicleWeight {};
 		class deviceMine {};
 		class addVehicle2Chain {};
+		class earplugs {};
 	};
 	
 	class Cop
 	{
 		file = "core\cop";
 		class copMarkers {};
+		class copteamMarkers {};
 		class copLights {};
 		class vehInvSearch {};
 		class copSearch {};
@@ -263,6 +272,7 @@ class Life_Client_Core
 		class copLoadout {};
 		class ticketPaid {};
 		class wantedGrab {};
+		class copUniset {};
 	};
 	
 	class Gangs
@@ -280,6 +290,7 @@ class Life_Client_Core
 		class gangInvite {};
 		class gangDisband {};
 		class gangDisbanded {};
+		class gangMarkers {};
 	};
 	
 	class Shops

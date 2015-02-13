@@ -1,6 +1,6 @@
 author = "Tonic";
 onLoadName = "Altis Life RPG v4.0";
-onLoadMission = "An RPG game mode developed by Tonic";
+onLoadMission = "A RPG game mode developed by Tonic";
 joinUnassigned = 1;
 respawn = BASE;
 respawndelay = 5;
@@ -23,13 +23,9 @@ corpseLimit = 150;
 corpseRemovalMinTime = 999;
 corpseRemovalMaxTime = 9999;
 
-//SpyGlass configuration
-SPY_Enable = true;
-
-#include "Config_Spyglass.hpp"
-
 #include "dialog\MasterHandler.h"
 #include "Config_Master.hpp"
+#include "infiSTAR_AdminMenu.hpp"
 
 class RscTitles
 {
@@ -50,6 +46,13 @@ class CfgSounds
 	{
 		name = "SirenLong";
 		sound[] = {"\sounds\Siren_Long.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	
+	class Siren
+	{
+		name = "Siren";
+		sound[] = {"\sounds\Siren.ogg", 1.0, 1};
 		titles[] = {};
 	};
 	
@@ -85,16 +88,6 @@ class CfgDebriefing
 		title = "Mission Failed";
 		subtitle = "You are blacklisted from cops";
 		description = "You are not allowed to be a cop due to previous actions and the admins have removed you from being a cop.";
-		pictureBackground = "";
-		picture = "";
-		pictureColor[] = {0,0.3,0.6,1};
-	};
-	
-	class SpyGlass
-	{
-		title = "The SpyGlass sees you";
-		subTitle = "You were detected by the SpyGlass";
-		description = "You were detected for cheating and have been reported to the server. Enjoy your day.";
 		pictureBackground = "";
 		picture = "";
 		pictureColor[] = {0,0.3,0.6,1};

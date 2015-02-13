@@ -12,7 +12,6 @@ diag_log "----------------------------------------------------------------------
 diag_log "--------------------------------- Starting Altis Life Client Init ----------------------------------";
 diag_log "------------------------------------------------------------------------------------------------------";
 waitUntil {!isNull player && player == player}; //Wait till the player is ready
-[] call compile PreprocessFileLineNumbers "core\clientValidator.sqf";
 
 //Setup initial client core functions
 diag_log "::Life Client:: Initialization Variables";
@@ -104,6 +103,13 @@ life_fnc_moveIn = compileFinal
 ";
 
 [] spawn life_fnc_survival;
+[] execVM "core\welcome.sqf";
+
+// Init automatically saving gear
+[] spawn life_fnc_autoSave;
+
+enableRadio false;
+0 fadeRadio 0;
 
 CONSTVAR(life_paycheck); //Make the paycheck static.
 if(EQUAL(LIFE_SETTINGS(getNumber,"enable_fatigue"),0)) then {player enableFatigue false;};

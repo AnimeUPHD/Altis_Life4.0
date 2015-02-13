@@ -4,6 +4,9 @@
 		<Key ID="STR_Shops_C_Bruce">
 			<Original>Bruce's Outback Outfits</Original>
 		</Key>
+		<Key ID="STR_Donor_clothing">
+			<Original>Donor Clothing Shop</Original>
+		</Key>
 		<Key ID="STR_Shops_C_Police">
 			<Original>Altis Police Department Shop</Original>
 		</Key>
@@ -1064,6 +1067,9 @@
 			<French>Sync Data</French>
 			<Italian>Salva Dati</Italian>
 			<Portuguese>Sincronizar Dados</Portuguese>
+		</Key>
+		<Key ID="STR_BTK_Autosave">
+			<Original>&lt;t color='#FF1100' &gt; Saving %1 &lt;/t&gt;</Original>
 		</Key>
 	</Package>
 	<Package name="Settings_Menu">

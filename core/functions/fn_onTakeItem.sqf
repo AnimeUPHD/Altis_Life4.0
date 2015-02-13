@@ -14,10 +14,10 @@ if(isNull _unit OR _item == "") exitWith {}; //Bad thingies?
 
 switch(playerSide) do
 {
-	case west: {}; //Blah
+	case west: {if(_item in ["U_B_CombatUniform_mcam_worn","U_Rangemaster"]) then {[] call life_fnc_copUniSet;};
 	case civilian: {
 		//Currently stoping the civilians from taking the indep clothing from medics.
-		if(_item in ["U_I_CombatUniform"]) then {
+		if(_item in ["U_Rangemaster"]) then {
 			[_item,false,false,false,false] call life_fnc_handleItem;
 		};
 	};

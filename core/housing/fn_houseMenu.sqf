@@ -23,7 +23,7 @@ disableSerialization;
 _curTarget = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
 if(isNull _curTarget) exitWith {closeDialog 0;}; //Bad target
 _houseCfg = M_CONFIG(getNumber,"Houses",typeOf(_curTarget),"price");
-if (_houseCfg == 0) exitWith {closeDialog 0};
+//if (_houseCfg == 0) exitWith {closeDialog 0};
 
 _Btn1 = CONTROL(37400,Btn1);
 _Btn2 = CONTROL(37400,Btn2);
@@ -36,7 +36,7 @@ _Btn7 = CONTROL(37400,Btn7);
 
 life_pInact_curTarget = _curTarget;
 if(_curTarget isKindOf "House_F" && playerSide == west) exitWith {
-	if((nearestObject [[16019.5,16952.9,0],"Land_Dome_Big_F"]) == _curTarget OR (nearestObject [[16019.5,16952.9,0],"Land_Research_house_V1_F"]) == _curTarget) then {
+	if((nearestObject [[15794,16613.5,0],"Land_Dome_Small_F"]) == _curTarget OR (nearestObject [[15794,16621.3,0],"Land_Research_house_V1_F"]) == _curTarget) then {
 		
 		_Btn1 ctrlSetText localize "STR_pInAct_Repair";
 		_Btn1 buttonSetAction "[life_pInact_curTarget] spawn life_fnc_repairDoor; closeDialog 0;";

@@ -38,3 +38,11 @@ if(_container isKindOf "Man" && !alive _container) exitWith {
 	hint localize "STR_NOTF_NoLootingPerson";
 	true;
 };
+
+if((playerSide == west) && (uniform player == "U_Rangemaster") || (uniform player == "U_B_CombatUniform_mcam_worn")) then {
+	[] call life_fnc_copUniSet;
+};
+
+if((playerSide == independent) && (uniform player == "U_Rangemaster")) then {
+	[] call life_fnc_copUniSet;
+};

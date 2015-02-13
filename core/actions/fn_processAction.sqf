@@ -14,7 +14,7 @@ if(isNull _vendor OR EQUAL(_type,"") OR (player distance _vendor > 10)) exitWith
 
 //unprocessed item,processed item, cost if no license,Text to display (I.e Processing  (percent) ..."
 _itemInfo = switch (_type) do {
-	case "oil": {["oilu","oilp",1200,(localize "STR_Process_Oil")];};
+	case "oil": {["oil_unprocessed","oil_processed",1200,(localize "STR_Process_Oil")];};
 	case "diamond": {["diamond_uncut","diamond_cut",1350,(localize "STR_Process_Diamond")];};
 	case "heroin": {["heroin_unprocessed","heroin_processed",1750,(localize "STR_Process_Heroin")];};
 	case "copper": {["copper_unrefined","copper_refined",750,(localize "STR_Process_Copper")];};
@@ -64,7 +64,7 @@ life_is_processing = true;
 if(_hasLicense) then {
 	while{true} do {
 		sleep  0.3;
-		_cP = _cP + 0.01;
+		_cP = _cP + 0.02;
 		_progress progressSetPosition _cP;
 		_pgText ctrlSetText format["%3 (%1%2)...",round(_cP * 100),"%",_upp];
 		if(_cP >= 1) exitWith {};
@@ -82,7 +82,7 @@ if(_hasLicense) then {
 	
 	while{true} do {
 		sleep  0.9;
-		_cP = _cP + 0.01;
+		_cP = _cP + 0.02;
 		_progress progressSetPosition _cP;
 		_pgText ctrlSetText format["%3 (%1%2)...",round(_cP * 100),"%",_upp];
 		if(_cP >= 1) exitWith {};

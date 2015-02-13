@@ -10,7 +10,7 @@ _animalCorpse = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
 if(isNull _animalCorpse) exitWith {}; //Object passed is null?
 
 life_interrupted = false;
-if(!((typeOf _animalCorpse) in ["Hen_random_F","Cock_random_F","Goat_random_F","Sheep_random_F","Rabbit_F"])) exitWith {};
+if(!((typeOf _animalCorpse) in ["Hen_random_F","Cock_random_F","Goat_random_F","Sheep_random_F","Rabbit_F","Turtle_F"])) exitWith {};
 if(player distance _animalCorpse > 3.5) exitWith {};
 life_action_inUse = true;
  switch(typeOf _animalCorpse) do {
@@ -19,6 +19,7 @@ life_action_inUse = true;
 	case "Goat_random_F": {_displayName = "Goat"; _item = "goat_raw";};
 	case "Sheep_random_F": {_displayName = "Sheep"; _item = "sheep_raw";};
 	case "Rabbit_F": {_displayName = "Rabbit"; _item = "rabbit_raw";};
+	case "Turtle_F": {_displayName = "Turtle"; _item = "turtle_raw";};
 	default {_displayName = ""; _item = "";};
 };
 

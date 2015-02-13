@@ -22,19 +22,11 @@ if(EQUAL(count _this,0)) exitWith {[] call SOCK_fnc_insertPlayerInfo;};
 if(EQUAL(SEL(_this,0),"Error")) exitWith {[] call SOCK_fnc_insertPlayerInfo;};
 if(!(EQUAL(steamid,SEL(_this,0)))) exitWith {[] call SOCK_fnc_dataQuery;};
 
-//Lets make sure some vars are not set before hand.. If they are get rid of them, hopefully the engine purges past variables but meh who cares.
-if(!isServer && (!isNil "life_adminlevel" OR !isNil "life_coplevel" OR !isNil "life_donator")) exitWith {
-	[[profileName,getPlayerUID player,"VariablesAlreadySet"],"SPY_fnc_cookieJar",false,false] call life_fnc_MP;
-	[[profileName,format["Variables set before client initialization...\nlife_adminlevel: %1\nlife_coplevel: %2\nlife_donator: %3",life_adminlevel,life_coplevel,life_donator]],"SPY_fnc_notifyAdmins",true,false] call life_fnc_MP;
-	sleep 0.9;
-	failMission "SpyGlass";
-};
-
 //Parse basic player information.
 CASH = parseNumber (SEL(_this,2));
 BANK = parseNumber (SEL(_this,3));
 CONST(life_adminlevel,parseNumber (SEL(_this,4)));
-CONST(life_donator,0);
+CONST(life_donator,parseNumber (SEL(_this,5)));
 
 //Loop through licenses
 if(count (SEL(_this,6)) > 0) then {
@@ -54,15 +46,16 @@ switch(playerSide) do {
 	
 	case civilian: {
 		life_is_arrested = SEL(_this,7);
+		CONST(life_rebellevel, parseNumber(SEL(_this,9)));
 		CONST(life_coplevel, 0);
 		CONST(life_medicLevel, 0);
-		life_houses = SEL(_this,9);
+		life_houses = SEL(_this,10);
 		{
 			_house = nearestBuilding (call compile format["%1", SEL(_x,0)]);
 			life_vehicles pushBack _house;
 		} foreach life_houses;
 		
-		life_gangData = SEL(_this,10);
+		life_gangData = SEL(_this,11);
 		if(!(EQUAL(count life_gangData,0))) then {
 			[] spawn life_fnc_initGang;
 		};
@@ -75,8 +68,16 @@ switch(playerSide) do {
 	};
 };
 
+
 if(count (SEL(_this,12)) > 0) then {
 	{life_vehicles pushBack _x;} foreach (SEL(_this,12));
+};
+
+switch(FETCH_CONST(life_donator)) do
+{
+	case 1: {life_paycheck = life_paycheck + 250;};
+	case 2: {life_paycheck = life_paycheck + 500;};
+	case 3: {life_paycheck = life_paycheck + 750;};
 };
 
 life_session_completed = true;

@@ -4,6 +4,7 @@ class Life_Clothing {
 	movingEnable = true;
 	enableSimulation = true;
 	//onLoad = "[] execVM 'core\client\keychain\init.sqf'";
+	onLBSelChanged = "[_this] call life_fnc_changeClothes; [] call life_fnc_copUniSet";
 	
 	class controlsBackground {
 		class Life_RscTitleBackground:Life_RscText {
@@ -43,7 +44,8 @@ class Life_Clothing {
 			idc = 3101;
 			text = "";
 			sizeEx = 0.035;
-			onLBSelChanged = "[_this] call life_fnc_changeClothes;";
+			onLBSelChanged = "[_this] call life_fnc_changeClothes; [] call life_fnc_CopUniSet;";
+
 			
 			x = 0.0842977 * safezoneW + safezoneX;
 			y = 0.240498 * safezoneH + safezoneY;

@@ -44,6 +44,17 @@
 
 [] spawn
 {
+	while {true} do
+	{
+		if(vehicle player == player) then {
+			1 fadesound 1;
+			life_earplugs = false;
+		};
+	};
+};
+
+[] spawn
+{
 	private["_bp","_load","_cfg"];
 	while{true} do
 	{

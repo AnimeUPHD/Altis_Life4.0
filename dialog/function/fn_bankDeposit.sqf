@@ -20,4 +20,8 @@ BANK = BANK + _value;
 
 hint format[localize "STR_ATM_DepositMSG",[_value] call life_fnc_numberText];
 [] call life_fnc_atmMenu;
+
+//log transfer
+[[format ["1|%1 has payed %2$ into his account. %1 has now %3 on his bankaccount",player getVariable["realname",name player],[_value] call life_fnc_numberText,[life_atmbank] call life_fnc_numberText]],"Arma3Log",false,false] call life_fnc_MP;
+
 [6] call SOCK_fnc_updatePartial;

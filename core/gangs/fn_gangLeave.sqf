@@ -12,6 +12,7 @@ _grp = grpPlayer;
 _grpMembers = grpPlayer GVAR "gang_members";
 SUB(_grpMembers,[steamid]);
 _grp SVAR ["gang_members",_grpMembers,true];
+life_my_gang = ObjNull;
 [player] joinSilent (createGroup civilian);
 
 [[4,_grp],"TON_fnc_updateGang",false,false] call life_fnc_MP;

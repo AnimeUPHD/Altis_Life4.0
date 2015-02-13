@@ -2,7 +2,6 @@
 /*
 	File: fn_wantedMenu.sqf
 	Author: Bryan "Tonic" Boardwine
-
 	Description:
 	Opens the Wanted menu and connects to the APD.
 */
